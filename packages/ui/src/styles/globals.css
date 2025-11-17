@@ -115,6 +115,64 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-primary-main: #9500ff;
+
+  /* web design system */
+
+  /* primary */
+  --color-web-primary-main: #9500ff;
+  --color-web-primary-surface: #f7e8ff;
+  --color-web-primary-border: #e4b9ff;
+  --color-web-primary-hover: #7c00d6;
+  --color-web-primary-pressed: #550094;
+  --color-web-primary-focus: #9500ff;
+
+  /* secondary */
+  --color-web-secondary-main: #ffd33c;
+  --color-web-secondary-surface: #fff6d8;
+  --color-web-secondary-border: #fff0be;
+  --color-web-secondary-hover: #ffc80a;
+  --color-web-secondary-pressed: #d6a600;
+  --color-web-secondary-focus: #ffd33c;
+
+  /* success */
+  --color-web-success-main: #50cd89;
+  --color-web-success-surface: #f2fff8;
+  --color-web-success-border: #c5eed8;
+  --color-web-success-hover: #46b277;
+  --color-web-success-pressed: #28593f;
+  --color-web-success-focus: #50cd89;
+
+  /* error */
+  --color-web-error-main: #f14141;
+  --color-web-error-surface: #fff5f5;
+  --color-web-error-border: #fac0c0;
+  --color-web-error-hover: #d93a3a;
+  --color-web-error-pressed: #802a2a;
+  --color-web-error-focus: #f14141;
+
+  /* info */
+  --color-web-info-main: #3178f2;
+  --color-web-info-surface: #9cc3ff;
+  --color-web-info-border: #d1e4ff;
+  --color-web-info-hover: #2765d9;
+  --color-web-info-pressed: #1b3f91;
+  --color-web-info-focus: #3178f2;
+
+  /* neutral */
+  --color-web-neutral-10: #ffffff;
+  --color-web-neutral-20: #9cc3ff;
+  --color-web-neutral-30: #ededed;
+  --color-web-neutral-40: #d6d6d6;
+  --color-web-neutral-50: #c2c2c2;
+  --color-web-neutral-60: #878787;
+  --color-web-neutral-70: #606060;
+  --color-web-neutral-80: #383838;
+  --color-web-neutral-90: #242424;
+  --color-web-neutral-100: #101010;
+
+  /* font */
+  --font-outfit: var(--font-outfit);
 }
 
 @layer base {
@@ -123,5 +181,16 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-outfit);
   }
 }

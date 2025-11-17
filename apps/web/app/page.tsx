@@ -1,12 +1,18 @@
-import { Button } from "@workspace/ui/components/button"
+import { Button } from "@workspace/ui/components/button";
+import { Icons } from "@workspace/ui/components/icons";
+import Link from "next/link";
+import React from "react";
 
-export default function Page() {
+const page = () => {
   return (
-    <div className="flex items-center justify-center min-h-svh">
-      <div className="flex flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold">Hello World</h1>
-        <Button size="sm">Button</Button>
-      </div>
+    <div className="h-screen flex items-center justify-center">
+      <Link href={"/testing"}>
+        <Button variant={"default"}  iconRight={Icons.arrow_arc_right}>
+          Goto Testing Grounds
+        </Button>
+      </Link>
     </div>
-  )
-}
+  );
+};
+
+export default page;
