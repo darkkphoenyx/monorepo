@@ -1,31 +1,44 @@
-# shadcn/ui monorepo template
+# Monorepo setup
 
-This template is for creating a monorepo with shadcn/ui.
+- Well I have used the shadcn monorepo which uses TurboRepo by default
+  and all the setting are just same
 
-## Usage
+### How to use the global files in apps
 
-```bash
-pnpm dlx shadcn@latest init
+- By global i mean the package/ui onces.. this is a bit of a hassel to understand at first cause being Monorepo.
+
+- So first thing to do is like have path setup on the tsconfig.json file
+
+```javascript
+//add this to line
+
+"paths": {
+      "@/*": ["./*"],
+      "@workspace/ui/src/components/*": ["../../packages/ui/src/components/*"]
+    },
+
 ```
 
-## Adding components
+- Then you should use the relative path to import your package/ui/styles/globals.css to your layout of new app
 
-To add components to your app, run the following command at the root of your `web` app:
+```javascript
+//put this on layout
 
-```bash
-pnpm dlx shadcn@latest add button -c apps/web
+import "../../../packages/ui/src/styles/globals.css";
+
+//and one more thing like the local globals.css is useless now. cause we are using the global one(pun) so can delete it safely
 ```
 
-This will place the ui components in the `packages/ui/src/components` directory.
+- Now if you want to use any components form the package/ui/styles then again manually import it..
 
-## Tailwind
+Note: The auto import dont work (I dunno how to fix it.. it may work but I dunno how to setup the auto-import suggestion. so for now stick to manually importing things.😊)
 
-Your `tailwind.config.ts` and `globals.css` are already set up to use the components from the `ui` package.
+```javascript
+//import it like this-> say i want to use button of package/ui/styles/button
 
-## Using components
+import { Button } from "@workspace/ui/src/components/button";
 
-To use the components in your app, import them from the `ui` package.
-
-```tsx
-import { Button } from "@workspace/ui/components/button"
+//again you dont need package here cause we've already setup paths earlier i.e @workspace/ui/* so importing everyting
 ```
+
+### Now your monorepo is working!
